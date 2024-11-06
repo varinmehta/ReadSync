@@ -7,10 +7,20 @@ const connectDB = require("./db/connection");
 
 const app = express();
 
-// Connect to MongoDB
 connectDB(process.env.MONGO_URL);
+app.listen(process.env.PORT || 8000);
 
-// Middleware setup
-app.use(express.json());
+//Middleware
 app.use(cookieParser());
-module.exports = app;
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+        credentials: true,
+    })
+);
+
+app.use(express.json());
+
+app.use(user);
+
+console.log("Listening on port 8000");
