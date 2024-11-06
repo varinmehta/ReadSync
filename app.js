@@ -7,14 +7,20 @@ const connectDB = require("./db/connection");
 
 const app = express();
 
+// Connect to MongoDB
 connectDB(process.env.MONGO_URL);
 
+// Middleware setup
 app.use(express.json());
 app.use(cookieParser());
+app.use(
+    cors({
+        origin: "https://read-sync-varinmehta-varin-mehtas-projects.vercel.app",
+    })
+); // If needed for handling CORS
 
-app.use(user);
+// Route setup
+app.use("/api", user); // Prefix routes with "/api" for consistency with Vercel's routing
 
-const port = process.env.PORT || 8000;
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
+// Export the app for Vercel's serverless function handler
+module.exports = app;
