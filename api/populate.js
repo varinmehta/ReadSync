@@ -1,10 +1,10 @@
 
 
-const connectdb = require('./db/connection');
-const Book = require('./db/models/book'); 
-const books = require('./books.json'); 
-const users = require('./user.json'); 
-const UserModel = require('./db/models/user'); 
+const connectdb = require('../db/connection');
+const Book = require('../db/models/book'); 
+const books = require('../books.json'); 
+const users = require('../user.json'); 
+const UserModel = require('../db/models/user'); 
 
 const addBookToDB = async (bookData) => {
   try {
