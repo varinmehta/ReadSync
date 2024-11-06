@@ -2,38 +2,14 @@
     "version": 2,
     "builds": [
         {
-            "src": "api/app.js",
-            "use": "@vercel/node"
-        },
-        {
             "src": "frontend/package.json",
             "use": "@vercel/static-build",
             "config": {
                 "distDir": "frontend/dist"
             }
-        },
-        {
-            "src": "api/scrape.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "api/populate.js",
-            "use": "@vercel/node"
         }
     ],
     "routes": [
-        {
-            "src": "/api/hello",
-            "dest": "api/app.js"
-        },
-        {
-            "src": "/api/scrape",
-            "dest": "api/scrape.js"
-        },
-        {
-            "src": "/api/populate",
-            "dest": "api/populate.js"
-        },
         {
             "src": "/(.*)",
             "dest": "/frontend/dist/$1"
