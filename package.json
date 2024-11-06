@@ -4,7 +4,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "build-with-permissions": "chmod +x node_modules/.bin/vite && vite build"
   },
   "author": "",
   "license": "ISC",
